@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Slider</title>
+
+    <link rel="stylesheet" href="style.css">
+   
+          
+</head>
+<body>
+        <h1>Learn Tech from Latest Courses</h1>
+        <p class="centered-text">Explore 175+ Premium Courses with New Course Additions every Month.</p>
+
+    <div class="container">
+
+        <h1>Featured Courses</h1>
+
+        <div class="slider-container">
+
+            <div class="slider">
+
+                <div class="slide">
+
+                    <div class="course-card">
+
+                        <img src="/images/javascript.webp" alt="javascript">
+                        <div class="course-content">
+
+                            <h2 class="course-title">JavaScript</h2>
+
+                            <p class="course-description">JavaScript is the world's most popular programming language.
+
+                                JavaScript is the programming language of the Web..</p>
+
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+
+                    <div class="course-card">
+
+                        <img src="images/react.webp" alt="React">
+
+                        <div class="course-content">
+
+                            <h2 class="course-title">React</h2>
+
+                            <p class="course-description">React, sometimes referred to as a frontend JavaScript framework, is a JavaScript library created by Facebook.
+
+                                React is a tool for building UI components.</p>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+
+                    <div class="course-card">
+
+                        <img src="images/angular.webp" alt=" Angular">
+
+                        <div class="course-content">
+
+                            <h2 class="course-title">Angular</h2>
+
+                            <p class="course-description">It is a platform and framework for building client-side web applications using HTML, CSS, and TypeScript (a superset of JavaScript).</p>
+
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+
+                    <div class="course-card">
+
+                        <img src="images/htmlcss.webp" alt="htmlcss">
+
+                        <div class="course-content">
+
+                            <h2 class="course-title">HTML CSS</h2>
+
+                            <p class="course-description">Master Python programming for data analysis, visualization, and machine learning. General-purpose, object-oriented programming language .</p>
+
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <div class="slide">
+
+                    <div class="course-card">
+
+                        <img src="images/Fundamentals-of-Web-Development.jpg" alt="Fundamentals-of-Web-Development" class="course-image">
+
+                        <div class="course-content">
+
+                            <h2 class="course-title">Web Development Fundamentals</h2>
+
+                            <p class="course-description">Learn the basics of HTML, CSS, and JavaScript to build modern websites.
+                                It includes aspects such as web design, web publishing, web programming. 
+                            </p>
+
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide">
+
+                    <div class="course-card">
+
+                        <img src="images/mongodb.webp" alt="Full Stack JavaScript" class="course-image">
+
+                        <div class="course-content">
+
+                            <h2 class="course-title">Mongodb</h2>
+                            <p class="course-description">MongoDB is a source-available, cross-platform, document-oriented database program. Based on the table-like relational database structure. This format of storage is called BSON .</p>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide">
+                    <div class="course-card">
+                        <img src="images/Cloud computing essentials.jpeg" alt="cloud computing"class="course-image">
+                        <div class="course-content">
+                            <h2 class="course-title">Cloud Computing Essentials</h2>
+                            <p class="course-description">Understand cloud architecture and services with hands-on experience in AWS or Azure. Cloud computing architecture consists of front-end and back-end platforms, cloud-based delivery.</p>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="course-card">
+                        <img src="https://www.cyberbahnit.com/wp-content/uploads/2017/11/blockchain.jpg" alt="Blockchain Technology" class="course-image">
+                        <div class="course-content">
+                            <h2 class="course-title">Blockchain Technology</h2>
+                            <p class="course-description">Explore the fundamentals of blockchain and its applications in various industries. Blockchain is the backbone Technology of the Digital CryptoCurrency BitCoin.</p>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn prev-btn">Previous</button>
+            <button class="slider-btn next-btn">Next</button>
+        </div>
+        <div class="slider-dots"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dotsContainer = document.querySelector('.slider-dots');
+
+            let currentIndex = 0;
+            let slidesPerView = 1;
+
+            function updateSlidesPerView() {
+                if (window.innerWidth >= 1024) {
+                    slidesPerView = 3;
+                } else if (window.innerWidth >= 768) {
+                    slidesPerView = 2;
+                } else {
+                    slidesPerView = 1;
+                }
+                updateSlider();
+            }
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * (100 / slidesPerView)}%)`;
+                updateDots();
+            }
+
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i <= slides.length - slidesPerView; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateSlider();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                updateDots();
+            }
+
+            function updateDots() {
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < slides.length - slidesPerView) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+
+            window.addEventListener('resize', updateSlidesPerView);
+            updateSlidesPerView();
+            createDots();
+        });
+    </script>
+</body>
+</html>

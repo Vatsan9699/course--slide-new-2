@@ -1,0 +1,130 @@
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.1;
+            background-color: #f4f4f4;
+            
+        }
+        .centered-text {
+            text-align: center;
+            margin: 1px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 10px;
+        }
+        .course-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .course-content {
+            padding: 20px;
+        }
+        .course-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .course-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .enroll-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .enroll-btn:hover {
+            background-color: #0056b3;
+        }
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .slider-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .slider-btn:hover {
+            background-color: #0056b3;
+        }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .dot.active {
+            background-color: #007bff;
+        }
+        @media (min-width: 756px) {
+            .slide {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        @media (min-width: 1243px) {
+            .slide {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
